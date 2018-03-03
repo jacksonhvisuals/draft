@@ -1,3 +1,5 @@
-.note-title {}
-.note-content {}
-.note-tags {}
+.list-note-title {font-weight: 600; font-size: 24px}
+.list-note-content {font-family: 'Roboto Mono', monospace; margin-top: 8px}
+.list-note-tags {}
+.list-note-item {width: 100%; height: auto; padding: 24px; padding-left: 19px;border-bottom: 1px solid rgba(0,0,0,0.2)}
+.list-note-item:hover {background-color: rgba(0,0,0,0.03)}

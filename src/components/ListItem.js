@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './styles/ListItem.css';
 
-export class ListItem from Component {
+export class ListItem extends Component {
   render() {
     return(
-      <div>
-        <div className='note-title'>Title</div>
-        <div className='note-content'>This is the content of the note. I really like how it works.</div>
-        <div className='note-tags'></div>
+      <div className='list-note-item'>
+        <div className='list-note-title'>Note Title</div>
+        <div className='list-note-content'>This is the content of the note. I really like how it works. It even wraps, which is pretty neat.</div>
+        <div className='list-note-tags'></div>
       </div>
     );
   }
