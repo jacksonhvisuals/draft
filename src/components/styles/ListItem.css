@@ -2,4 +2,4 @@
 .list-note-content {font-family: 'Roboto Mono', monospace; margin-top: 8px}
 .list-note-tags {}
 .list-note-item {width: 100%; height: auto; padding: 24px; padding-left: 19px;border-bottom: 1px solid rgba(0,0,0,0.2)}
-.list-note-item:hover {background-color: rgba(0,0,0,0.03)}
+.list-note-item:hover, .list-note-item:focus {background-color: rgba(0,0,0,0.02)}
