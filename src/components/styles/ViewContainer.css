@@ -1,0 +1,4 @@
+
+.listPane {background-color: rgba(0,0,0,0.05); height: calc(100vh - 56px);}
+.detailPane {background-color: white; height: calc(100vh - 56px);}
+.viewContainer {z-index: 0; position: relative;}
