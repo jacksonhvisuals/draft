@@ -3,6 +3,7 @@ import { Col } from 'react-bootstrap';
 import { FAB } from './FAB';
 import {ListContainer} from './ListContainer';
 import './styles/ViewContainer.css';
+import {EditorContainer} from './EditorContainer';
 
 export class ViewContainer extends Component {
   render() {
@@ -13,6 +14,7 @@ export class ViewContainer extends Component {
           <FAB />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
+          <EditorContainer />
         </Col>
       </div>
     );
