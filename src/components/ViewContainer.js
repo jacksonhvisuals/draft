@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Col } from 'react-bootstrap';
 import { FAB } from './FAB';
-import {ListItem} from './ListItem';
 import {ListContainer} from './ListContainer';
 import './styles/ViewContainer.css';
 
