@@ -12,10 +12,10 @@ export class ViewContainer extends Component {
     this.state = {
       notes: [
         {
-          id: 1, noteTitle: "First note", noteContent: "This is the note content",
+          id: 1, noteTitle: "First note", noteContent: "This is the note content", noteTags: ["tag1", "tag2"],
         },
         {
-          id: 2, noteTitle: "Second note", noteContent: "This is the note content",
+          id: 2, noteTitle: "Second note", noteContent: "This is the note content", noteTags: ["tag1", "tag2"],
         },
       ],
     }

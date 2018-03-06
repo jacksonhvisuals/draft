@@ -5,7 +5,7 @@ export class Tag extends Component {
   render() {
     return(
       <div className='tag-item'>
-        tag
+        {this.props.tagName}
       </div>
 
     );
