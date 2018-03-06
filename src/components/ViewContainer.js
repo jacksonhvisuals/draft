@@ -4,16 +4,34 @@ import { FAB } from './FAB';
 import {ListContainer} from './ListContainer';
 import './styles/ViewContainer.css';
 import {EditorContainer} from './EditorContainer';
+import {RandroidToolbar} from './RandroidToolbar';
 
 export class ViewContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [
+        {
+          id: 1, noteTitle: "First note", noteContent: "This is the note content",
+        },
+        {
+          id: 2, noteTitle: "Second note", noteContent: "This is the note content",
+        },
+      ],
+    }
+  }
   render() {
     return (
       <div className='viewContainer'>
         <Col className='listPane' xs={12} sm={4} md={3}>
-          <ListContainer />
+        <RandroidToolbar tyle={{zIndex: '34'}} />
+
+          <ListContainer notesCollection={this.state.notes}/>
           <FAB />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
+        <RandroidToolbar tyle={{zIndex: '34'}} />
+
           <EditorContainer />
         </Col>
       </div>

@@ -3,22 +3,17 @@ import {ListItem} from './ListItem';
 import './styles/ListContainer.css';
 
 export class ListContainer extends Component {
-  render() {
+
+  render(props) {
     return(
       <div className='list-container'>
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
+        {
+          this.props.notesCollection.map((note) => {
+            return(
+              <ListItem id={note.id} noteTitle={note.noteTitle} noteContent={note.noteContent} key={note.id} />
+            )
+          })
+        }
       </div>
     );
   }
