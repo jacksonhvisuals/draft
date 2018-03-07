@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/FAB.css';
+import './FAB.css';
 
 export class FAB extends Component {
   render() {

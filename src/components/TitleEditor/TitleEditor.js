@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Editor, EditorState} from 'draft-js';
-import './styles/TitleEditor.css';
+import './TitleEditor.css';
 import 'draft-js/dist/Draft.css';
 
 

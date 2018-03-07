@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Col } from 'react-bootstrap';
-import { FAB } from './FAB';
-import {ListContainer} from './ListContainer';
-import './styles/ViewContainer.css';
-import {EditorContainer} from './EditorContainer';
-import {RandroidToolbar} from './RandroidToolbar';
+import { FAB } from '../FAB/FAB';
+import {ListContainer} from '../ListContainer/ListContainer';
+import './ViewContainer.css';
+import {EditorContainer} from '../EditorContainer/EditorContainer';
+import {RandroidToolbar} from '../RandroidToolbar/RandroidToolbar';
 
 export class ViewContainer extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export class ViewContainer extends Component {
     this.state = {
       notes: [
         {
-          id: 1, timestamp: "",  noteTitle: "First note", noteContent: "This is the note content", noteTags: ["tag1", "tag2"], 
+          id: 1, timestamp: "",  noteTitle: "First note", noteContent: "This is the note content", noteTags: ["tag1", "tag2"],
         },
         {
           id: 2, timestamp: "", noteTitle: "Second note", noteContent: "This is the note content", noteTags: ["tag1", "tag2"],

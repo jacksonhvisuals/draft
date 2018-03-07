@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {ListItem} from './ListItem';
-import './styles/ListContainer.css';
+import {ListItem} from '../ListItem/ListItem';
+import './ListContainer.css';
 
 export class ListContainer extends Component {
 

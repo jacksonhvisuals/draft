@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './styles/EditorContainer.css';
-import {BodyEditor} from './BodyEditor';
-import {TitleEditor} from './TitleEditor';
+import '../EditorContainer/EditorContainer.css';
+import {BodyEditor} from '../BodyEditor/BodyEditor';
+import {TitleEditor} from '../TitleEditor/TitleEditor';
 
 export class EditorContainer extends Component {
   render() {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Tag} from './Tag';
-import './styles/TagContainer.css';
+import {Tag} from '../Tag/Tag';
+import './TagContainer.css';
 
 export class TagContainer extends Component {
   render() {

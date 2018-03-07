@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './styles/RandroidToolbar.css';
+import './RandroidToolbar.css';
 
 export class RandroidToolbar extends Component {
   render() {

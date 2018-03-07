@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Editor, EditorState, RichUtils} from 'draft-js';
-import './styles/BodyEditor.css';
+import './BodyEditor.css';
 
 export class BodyEditor extends Component {
   constructor(props) {

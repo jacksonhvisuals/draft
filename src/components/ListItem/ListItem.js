@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {TagContainer} from './TagContainer';
-import './styles/ListItem.css';
+import {TagContainer} from '../TagContainer/TagContainer';
+import './ListItem.css';
 
 export class ListItem extends Component {
 
