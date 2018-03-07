@@ -20,7 +20,7 @@ export class BodyEditor extends Component {
   render() {
     return (
       <div className="body-editor-wrapper">
-        <Editor editorState={this.state.editorState} handleKeyCommand={this.handleKeyCommand} onChange={this.onChange} />
+        <Editor placeholder="Enter your note here..." editorState={this.state.editorState} handleKeyCommand={this.handleKeyCommand} onChange={this.onChange} />
       </div>
     );
   }

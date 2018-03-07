@@ -13,7 +13,7 @@ export class TitleEditor extends Component {
   render() {
     return (
       <div className="title-editor-wrapper">
-        <Editor editorState={this.state.editorState} onChange={this.onChange} />
+        <Editor placeholder="Note title..." editorState={this.state.editorState} onChange={this.onChange} />
       </div>
     );
   }
