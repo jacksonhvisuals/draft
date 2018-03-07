@@ -1,14 +1,32 @@
 import React, {Component} from 'react';
-import {Editor, EditorState} from 'draft-js';
+import {Editor, EditorState, convertToRaw, convertFromRaw} from 'draft-js';
 import './TitleEditor.css';
 import 'draft-js/dist/Draft.css';
 
 
 export class TitleEditor extends Component {
+
   constructor(props) {
     super(props);
-    this.state = {editorState: EditorState.createEmpty()};
-    this.onChange = (editorState) => this.setState({editorState});
+    this.state = { };
+
+    const content = window.localStorage.getItem('content');
+
+    if (content) {
+      this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)));
+    } else {
+      this.state.editorState = EditorState.createEmpty();
+    }
+  }
+  saveContent = (content) => {
+    window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
+  }
+  onChange = (editorState) => {
+    const contentState = editorState.getCurrentContent();
+    this.saveContent(contentState);
+    this.setState({
+      editorState,
+    });
   }
   render() {
     return (

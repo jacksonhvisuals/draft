@@ -5,6 +5,7 @@ import {ListContainer} from '../ListContainer/ListContainer';
 import './ViewContainer.css';
 import {EditorContainer} from '../EditorContainer/EditorContainer';
 import {RandroidToolbar} from '../RandroidToolbar/RandroidToolbar';
+import {DetailToolbar} from '../DetailToolbar/DetailToolbar';
 
 export class ViewContainer extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ export class ViewContainer extends Component {
           <FAB />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
-        <RandroidToolbar tyle={{zIndex: '34'}} />
+        <DetailToolbar tyle={{zIndex: '34'}} />
 
           <EditorContainer />
         </Col>

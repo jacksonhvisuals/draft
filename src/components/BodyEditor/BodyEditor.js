@@ -1,14 +1,31 @@
 import React, {Component} from 'react';
-import {Editor, EditorState, RichUtils} from 'draft-js';
+import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
 import './BodyEditor.css';
 
 export class BodyEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = {editorState: EditorState.createEmpty()};
-    this.onChange = (editorState) => this.setState({editorState});
-    this.handleKeyCommand = this.handleKeyCommand.bind(this);
+    this.state = { };
+
+    const content = window.localStorage.getItem('content');
+
+    if (content) {
+      this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)));
+    } else {
+      this.state.editorState = EditorState.createEmpty();
+    }
   }
+  saveContent = (content) => {
+    window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
+  }
+  onChange = (editorState) => {
+    const contentState = editorState.getCurrentContent();
+    this.saveContent(contentState);
+    this.setState({
+      editorState,
+    });
+  }
+
   handleKeyCommand(command, editorState) {
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
