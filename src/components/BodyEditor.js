@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Editor, EditorState, RichUtils} from 'draft-js';
+import './styles/BodyEditor.css';
 
 export class BodyEditor extends Component {
   constructor(props) {
@@ -18,7 +19,9 @@ export class BodyEditor extends Component {
   }
   render() {
     return (
+      <div className="body-editor-wrapper">
         <Editor editorState={this.state.editorState} handleKeyCommand={this.handleKeyCommand} onChange={this.onChange} />
+      </div>
     );
   }
 }
