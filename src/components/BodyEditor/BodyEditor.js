@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
+import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw, getCurrentContent, getPlainText} from 'draft-js';
 import './BodyEditor.css';
 
 export class BodyEditor extends Component {
@@ -20,6 +20,7 @@ export class BodyEditor extends Component {
   }
   onChange = (editorState) => {
     const contentState = editorState.getCurrentContent();
+    console.log('content state', JSON.stringify(convertToRaw(contentState)));
     this.saveContent(contentState);
     this.setState({
       editorState,

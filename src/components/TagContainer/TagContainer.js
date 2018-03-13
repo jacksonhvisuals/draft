@@ -7,9 +7,9 @@ export class TagContainer extends Component {
     return(
       <div className='tag-container-item'>
         {
-          this.props.noteTags.map((tag) => {
+          this.props.noteTags.map((noteTag) => {
             return(
-              <Tag tagName={tag} />
+              <Tag tagName={noteTag.tag} id={noteTag.id} color={noteTag.color} key={noteTag.id}/>
             )
           })
         }
