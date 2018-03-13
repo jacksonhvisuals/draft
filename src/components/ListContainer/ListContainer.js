@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {ListItem} from '../ListItem/ListItem';
-import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw, getPlainText, getCurrentContent, getEntity} from 'draft-js';
 import './ListContainer.css';
 
 export class ListContainer extends Component {

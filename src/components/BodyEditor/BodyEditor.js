@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw, getCurrentContent, getPlainText} from 'draft-js';
+import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
 import './BodyEditor.css';
 
 export class BodyEditor extends Component {
@@ -14,13 +14,15 @@ export class BodyEditor extends Component {
     } else {
       this.state.editorState = EditorState.createEmpty();
     }
+    this.saveContent = this.saveContent.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
-  saveContent = (content) => {
+  saveContent(content) {
     window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
   }
-  onChange = (editorState) => {
+  onChange(editorState) {
     const contentState = editorState.getCurrentContent();
-    console.log('content state', JSON.stringify(convertToRaw(contentState)));
+    this.props.onBodyUpdate(1, JSON.stringify(convertToRaw(contentState)), editorState.getCurrentContent().getPlainText());
     this.saveContent(contentState);
     this.setState({
       editorState,

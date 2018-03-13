@@ -4,7 +4,7 @@ import './FAB.css';
 export class FAB extends Component {
   render() {
     return(
-      <button className="mdc-fab material-icons" ariaLabel="Favorite">
+      <button className="mdc-fab material-icons" aria-label="Favorite">
         <span className="mdc-fab__icon">
           add
         </span>

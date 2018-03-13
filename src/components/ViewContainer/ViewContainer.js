@@ -16,18 +16,18 @@ export class ViewContainer extends Component {
           id: 1,
           timestamp: "",
           noteTitle: "",
-          noteTitlePreview: "This is the note title preview",
+          noteTitlePreview: "Potential jobs",
           noteContent: "",
-          noteContentPreview: "This is the note content preview",
+          noteContentPreview: "YNAB, video editing, etc",
           noteTags: [ {tag: "fun", id: "1", color: "#987234"}, {tag: "testing", id: "2", color: "#984564"} ],
         },
         {
           id: 2,
           timestamp: "",
           noteTitle: "",
-          noteTitlePreview: "This is the note title preview",
+          noteTitlePreview: "Shopping list",
           noteContent: "",
-          noteContentPreview: "This is the note content preview",
+          noteContentPreview: "Milk, eggs, etc.",
           noteTags: [ {tag: "fun", id: "1", color: "#987234"}, {tag: "testing", id: "2", color: "#984564"} ],
         },
       ],
@@ -41,13 +41,13 @@ export class ViewContainer extends Component {
     currentnotes[0][noteid, "noteTitle"] = jsoncontentdump;
     currentnotes[0][noteid, "noteTitlePreview"] = plaintextdump;
     this.setState({currentnotes});
-    console.log(JSON.stringify(currentnotes));
   }
 
-  bodyEditorUpdate(noteid, jsoncontentdump) {
+  bodyEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
     const currentnotes = this.state.notes;
-    currentnotes.noteid.noteContent = jsoncontentdump;
-    console.log(jsoncontentdump);
+    currentnotes[0][noteid, "noteContent"] = jsoncontentdump;
+    currentnotes[0][noteid, "noteContentPreview"] = plaintextdump;
+    this.setState({currentnotes});
   }
 
   render() {
