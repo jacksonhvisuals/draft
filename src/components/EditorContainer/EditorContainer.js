@@ -8,7 +8,7 @@ export class EditorContainer extends Component {
   render() {
     return(
       <div className='editor-container-element'>
-        <TitleEditor className="title-editor-element" onTitleUpdate={this.props.titleUpdate} />
+        <TitleEditor className="title-editor-element" onTitleUpdate={this.props.titleUpdate} currentEditorState={this.props.noteTitleState}/>
         <BodyEditor className="body-editor-element" onBodyUpdate={this.props.bodyUpdate} />
       </div>
     );
