@@ -7,23 +7,19 @@ export class BodyEditor extends Component {
     super(props);
     this.state = { };
 
-    const content = window.localStorage.getItem('content');
+    const content = this.props.currentEditorState;
 
     if (content) {
       this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)));
     } else {
       this.state.editorState = EditorState.createEmpty();
     }
-    this.saveContent = this.saveContent.bind(this);
     this.onChange = this.onChange.bind(this);
   }
-  saveContent(content) {
-    window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
-  }
+
   onChange(editorState) {
     const contentState = editorState.getCurrentContent();
     this.props.onBodyUpdate(1, JSON.stringify(convertToRaw(contentState)), editorState.getCurrentContent().getPlainText());
-    this.saveContent(contentState);
     this.setState({
       editorState,
     });

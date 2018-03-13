@@ -8,7 +8,7 @@ export class TitleEditor extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { editorState: this.props.currentEditorState };
+    this.state = { };
 
     const contentTitle = this.props.currentEditorState;
 

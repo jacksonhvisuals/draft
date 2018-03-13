@@ -10,7 +10,7 @@ export class ListContainer extends Component {
         {
           this.props.notesCollection.map((note) => {
             return(
-              <ListItem id={note.id} noteTitle={note.noteTitlePreview} noteContent={note.noteContentPreview} key={note.id} noteTags={note.noteTags}/>
+              <ListItem id={note.id} noteTitle={note.noteTitlePreview} noteContent={note.noteContentPreview} key={note.id} noteTags={note.noteTags} noteClickHandler={this.props.noteClickHandler}/>
             )
           })
         }
