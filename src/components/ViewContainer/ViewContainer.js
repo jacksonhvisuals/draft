@@ -36,9 +36,11 @@ export class ViewContainer extends Component {
     this.bodyEditorUpdate = this.bodyEditorUpdate.bind(this);
   }
 
-  titleEditorUpdate(noteid, jsoncontentdump) {
+  titleEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
     const currentnotes = this.state.notes;
     currentnotes[0][noteid, "noteTitle"] = jsoncontentdump;
+    currentnotes[0][noteid, "noteTitlePreview"] = plaintextdump;
+    this.setState({currentnotes});
     console.log(JSON.stringify(currentnotes));
   }
 

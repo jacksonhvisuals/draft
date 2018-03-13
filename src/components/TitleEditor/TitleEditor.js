@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Editor, EditorState, convertToRaw, convertFromRaw} from 'draft-js';
+import {Editor, EditorState, convertToRaw, convertFromRaw, getPlainText} from 'draft-js';
 import './TitleEditor.css';
 import 'draft-js/dist/Draft.css';
 
@@ -27,7 +27,7 @@ export class TitleEditor extends Component {
 
   onChange(editorState) {
     const contentState = editorState.getCurrentContent();
-    this.props.onTitleUpdate(1, JSON.stringify(convertToRaw(contentState)));
+    this.props.onTitleUpdate(1, JSON.stringify(convertToRaw(contentState)), editorState.getCurrentContent().getPlainText());
     this.saveContent(contentState);
     this.setState({
       editorState,
