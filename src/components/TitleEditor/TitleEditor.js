@@ -21,7 +21,7 @@ export class TitleEditor extends Component {
 
   componentWillReceiveProps(nextProps) {
     const content = nextProps.currentEditorState;
-    if (nextProps.currentNoteId !== this.props.currentNoteId && content != this.state.editorState) {
+    if (nextProps.currentNoteId !== this.props.currentNoteId && content !== this.state.editorState) {
       this.setState({editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(content)))});
       }
   }
