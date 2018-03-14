@@ -28,7 +28,7 @@ export class ViewContainer extends Component {
           "noteTitlePreview":"Shopping list",
           "noteContent":"{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"Milk, eggs, etc.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteContentPreview":"Milk, eggs, etc.",
-          "noteTags":[{"tag":"fun","id":"1","color":"#987234"},{"tag":"testing","id":"2","color":"#984564"}]
+          "noteTags":[{"tag":"life","id":"1","color":"#987234"}]
         }
       ],
       currentNoteId: 0,
