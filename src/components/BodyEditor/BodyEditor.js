@@ -13,36 +13,25 @@ export class BodyEditor extends Component {
         this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)));
       } else {
         this.state.editorState = EditorState.createEmpty();
-      }
-      this.onChange = this.onChange.bind(this);
     }
 
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.currentEditorState !== this.props.currentEditorState) {
-      console.log(nextProps.currentEditorState);
-      return true;
-    }
-    return false;
+    this.onChange = this.onChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     const content = nextProps.currentEditorState;
-
-    if (content) {
+    if (nextProps.currentNoteId !== this.props.currentNoteId && content != this.state.editorState) {
       this.setState({editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(content)))});
-      } else {
-        this.setState({editorState: EditorState.createEmpty()});
-      }
+      } 
   }
-
 
   onChange(editorState) {
-    const contentState = editorState.getCurrentContent();
-    this.props.onBodyUpdate(1, JSON.stringify(convertToRaw(contentState)), editorState.getCurrentContent().getPlainText());
+    let contentState = editorState.getCurrentContent();
     this.setState({
       editorState,
-    });
+    }, () => {this.props.onBodyUpdate(this.props.currentNoteId, JSON.stringify(convertToRaw(contentState)), contentState.getPlainText());});
   }
+
 
   handleKeyCommand(command, editorState) {
     const newState = RichUtils.handleKeyCommand(editorState, command);

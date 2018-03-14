@@ -7,6 +7,8 @@ import {EditorContainer} from '../EditorContainer/EditorContainer';
 import {RandroidToolbar} from '../RandroidToolbar/RandroidToolbar';
 import {DetailToolbar} from '../DetailToolbar/DetailToolbar';
 
+let currentnotes;
+
 export class ViewContainer extends Component {
   constructor(props) {
     super(props);
@@ -36,19 +38,20 @@ export class ViewContainer extends Component {
     this.titleEditorUpdate = this.titleEditorUpdate.bind(this);
     this.bodyEditorUpdate = this.bodyEditorUpdate.bind(this);
     this.currentActiveNoteSelector = this.currentActiveNoteSelector.bind(this);
+    currentnotes = this.state.notes;
   }
 
   titleEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
-    const currentnotes = this.state.notes;
-    currentnotes[0][noteid, "noteTitle"] = jsoncontentdump;
-    currentnotes[0][noteid, "noteTitlePreview"] = plaintextdump;
-    this.setState({currentnotes});
+    currentnotes[noteid]["noteTitle"] = jsoncontentdump;
+    currentnotes[noteid]["noteTitlePreview"] = plaintextdump;
   }
 
   bodyEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
-    const currentnotes = this.state.notes;
-    currentnotes[0][noteid, "noteContent"] = jsoncontentdump;
-    currentnotes[0][noteid, "noteContentPreview"] = plaintextdump;
+    currentnotes[noteid]["noteContent"] = jsoncontentdump;
+    currentnotes[noteid]["noteContentPreview"] = plaintextdump;
+  }
+
+  componentWillUnmount() {
     this.setState({currentnotes});
   }
 
@@ -66,7 +69,7 @@ export class ViewContainer extends Component {
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
         <DetailToolbar tyle={{zIndex: '34'}} />
-          <EditorContainer titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.state.notes[this.state.currentNoteId]["noteTitle"]} noteContentState={this.state.notes[this.state.currentNoteId]["noteContent"]}/>
+          <EditorContainer titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.state.notes[this.state.currentNoteId]["noteTitle"]} noteContentState={this.state.notes[this.state.currentNoteId]["noteContent"]} currentNoteId={this.state.currentNoteId}/>
         </Col>
       </div>
     );

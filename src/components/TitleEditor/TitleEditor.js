@@ -18,9 +18,9 @@ export class TitleEditor extends Component {
     }
     this.onChange = this.onChange.bind(this);
   }
+
   shouldComponentUpdate(nextProps) {
-    if (nextProps.currentEditorState !== this.props.currentEditorState) {
-      console.log(nextProps.currentEditorState);
+    if (nextProps.currentNoteId !== this.props.currentNoteId) {
       return true;
     }
     return false;
@@ -28,16 +28,16 @@ export class TitleEditor extends Component {
 
   componentWillReceiveProps(nextProps) {
     const content = nextProps.currentEditorState;
-
     if (content) {
       this.setState({editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(content)))});
       } else {
         this.setState({editorState: EditorState.createEmpty()});
       }
   }
+
   onChange(editorState) {
     const contentState = editorState.getCurrentContent();
-    this.props.onTitleUpdate(1, JSON.stringify(convertToRaw(contentState)), editorState.getCurrentContent().getPlainText());
+    this.props.onTitleUpdate(this.props.currentNoteId, JSON.stringify(convertToRaw(contentState)), editorState.getCurrentContent().getPlainText());
     // console.log(JSON.stringify(convertToRaw(contentState)));
     this.setState({
       editorState,
