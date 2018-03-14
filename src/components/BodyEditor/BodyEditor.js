@@ -25,13 +25,13 @@ export class BodyEditor extends Component {
     return false;
   }
 
-  componentWillReceiveProps() {
-    const content = this.props.currentEditorState;
+  componentWillReceiveProps(nextProps) {
+    const content = nextProps.currentEditorState;
 
     if (content) {
-        this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)));
+      this.setState({editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(content)))});
       } else {
-        this.state.editorState = EditorState.createEmpty();
+        this.setState({editorState: EditorState.createEmpty()});
       }
   }
 
