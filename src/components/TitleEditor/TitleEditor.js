@@ -3,7 +3,6 @@ import {Editor, EditorState, convertToRaw, convertFromRaw} from 'draft-js';
 import './TitleEditor.css';
 import 'draft-js/dist/Draft.css';
 
-
 export class TitleEditor extends Component {
 
   constructor(props) {
@@ -20,11 +19,10 @@ export class TitleEditor extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-
   onChange(editorState) {
     const contentState = editorState.getCurrentContent();
     this.props.onTitleUpdate(1, JSON.stringify(convertToRaw(contentState)), editorState.getCurrentContent().getPlainText());
-    console.log(JSON.stringify(convertToRaw(contentState)));
+    // console.log(JSON.stringify(convertToRaw(contentState)));
     this.setState({
       editorState,
     });

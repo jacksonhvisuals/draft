@@ -4,7 +4,12 @@ import {BodyEditor} from '../BodyEditor/BodyEditor';
 import {TitleEditor} from '../TitleEditor/TitleEditor';
 
 export class EditorContainer extends Component {
-
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.noteTitleState !== this.props.noteTitleState) {
+      return true;
+    }
+    return false;
+  }
   render() {
     return(
       <div className='editor-container-element'>
