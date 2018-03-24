@@ -1,6 +1,5 @@
 .list-container {
   overflow-y: scroll;
-  height: calc(100vh - 56px);
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
