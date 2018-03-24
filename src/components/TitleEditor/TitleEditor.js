@@ -12,18 +12,22 @@ export class TitleEditor extends Component {
     const contentTitle = this.props.currentEditorState;
 
     if (contentTitle) {
-      this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(contentTitle)));
+        this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(contentTitle)));
+    } else if (contentTitle === "") {
+        this.state.editorState = EditorState.createEmpty();
     } else {
-      this.state.editorState = EditorState.createEmpty();
+        this.state.editorState = EditorState.createEmpty();
     }
     this.onChange = this.onChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     const content = nextProps.currentEditorState;
-    if (nextProps.currentNoteId !== this.props.currentNoteId && content !== this.state.editorState) {
+    if (nextProps.currentNoteId !== this.props.currentNoteId && content !== this.state.editorState && content !== "") {
       this.setState({editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(content)))});
-      }
+    } else if (content === "") {
+      this.setState({editorState: EditorState.createEmpty()});
+    }
   }
 
   onChange(editorState) {

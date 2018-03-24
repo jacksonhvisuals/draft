@@ -3,11 +3,14 @@ import './Tag.css';
 
 export class Tag extends Component {
   render() {
-    return(
-      <div className='tag-item'>
-        {this.props.tagName}
-      </div>
-
-    );
+    if (this.props.tagName === undefined) {
+      return null;
+    } else {
+      return(
+        <div className='tag-item'>
+          {this.props.tagName}
+        </div>
+      );
+    }
   }
 }

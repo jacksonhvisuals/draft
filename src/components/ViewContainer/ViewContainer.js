@@ -15,6 +15,7 @@ export class ViewContainer extends Component {
     this.state = {
       notes: [
         {
+          "key":0,
           "id":0,
           "timestamp":"",
           "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Potential jobs\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
@@ -24,6 +25,7 @@ export class ViewContainer extends Component {
           "noteTags":[{"tag":"fun","id":"1","color":"#987234"},{"tag":"testing","id":"2","color":"#984564"}]
         },
         {
+          "key":1,
           "id":1,
           "timestamp":"",
           "noteTitle":"{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Shopping list\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
@@ -38,6 +40,7 @@ export class ViewContainer extends Component {
     this.titleEditorUpdate = this.titleEditorUpdate.bind(this);
     this.bodyEditorUpdate = this.bodyEditorUpdate.bind(this);
     this.currentActiveNoteSelector = this.currentActiveNoteSelector.bind(this);
+    this.createNewNote = this.createNewNote.bind(this);
     currentnotes = this.state.notes;
   }
 
@@ -59,13 +62,29 @@ export class ViewContainer extends Component {
     this.setState({currentNoteId: noteid});
   }
 
+  createNewNote() {
+    let newNote = {
+      "key":2,
+      "id": 2,
+      "timestamp": "",
+      "noteTitle": "",
+      "noteTitlePreview": "New note",
+      "noteContent": "",
+      "noteContentPreview": "This is your new note",
+      "noteTags": [{}],
+    };
+    currentnotes.push(newNote);
+    this.setState({currentNoteId: 2});
+    console.log("duh");
+  }
+
   render() {
     return (
       <div className='viewContainer'>
         <Col className='listPane' xs={12} sm={4} md={3}>
         <RandroidToolbar tyle={{zIndex: '34'}} />
           <ListContainer notesCollection={this.state.notes} noteClickHandler={this.currentActiveNoteSelector} />
-          <FAB />
+          <FAB fabClickHandler={this.createNewNote} />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
         <DetailToolbar tyle={{zIndex: '34'}} />

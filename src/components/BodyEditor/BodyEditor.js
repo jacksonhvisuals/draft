@@ -17,8 +17,10 @@ export class BodyEditor extends Component {
 
     if (content) {
         this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)));
-      } else {
+    } else if (content === "") {
         this.state.editorState = EditorState.createEmpty();
+    } else {
+      this.state.editorState = EditorState.createEmpty();
     }
 
     this.onChange = this.onChange.bind(this);
@@ -26,9 +28,11 @@ export class BodyEditor extends Component {
 
   componentWillReceiveProps(nextProps) {
     const content = nextProps.currentEditorState;
-    if (nextProps.currentNoteId !== this.props.currentNoteId && content !== this.state.editorState) {
+    if (nextProps.currentNoteId !== this.props.currentNoteId && content !== this.state.editorState && content !== "") {
       this.setState({editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(content)))});
-      }
+    } else if (content === "") {
+      this.setState({editorState: EditorState.createEmpty()});
+    }
   }
 
   onChange(editorState) {
