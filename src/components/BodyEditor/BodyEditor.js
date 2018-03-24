@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
-import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
+import {EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
+import createEmojiPlugin from 'draft-js-emoji-plugin';
 import './BodyEditor.css';
+import '../../../node_modules/draft-js-emoji-plugin/lib/plugin.css';
+
+const emojiPlugin = createEmojiPlugin();
+const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
 
 export class BodyEditor extends Component {
   constructor(props) {
@@ -41,10 +47,12 @@ export class BodyEditor extends Component {
     }
     return 'not-handled';
   }
+
   render() {
     return (
       <div className="body-editor-wrapper">
-        <Editor placeholder="Enter your note here..." editorState={this.state.editorState} handleKeyCommand={this.handleKeyCommand} onChange={this.onChange} />
+        <Editor placeholder="Enter your note here..." editorState={this.state.editorState} handleKeyCommand={this.handleKeyCommand} onChange={this.onChange} plugins={[emojiPlugin]} />
+        <EmojiSuggestions />
       </div>
     );
   }
