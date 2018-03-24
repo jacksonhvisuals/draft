@@ -15,9 +15,9 @@ export class ListItem extends Component {
   render(props) {
     return(
       <div className='list-note-item' onClick={this.clickHandler}>
-        <div className='list-note-title'>{this.props.noteTitle}</div>
-        <div className='list-note-content'>{this.props.noteContent}</div>
-        <div className='list-note-tags'><TagContainer noteTags={this.props.noteTags} /></div>
+        <div className='list-note-title noselect'>{this.props.noteTitle}</div>
+        <div className='list-note-content noselect'>{this.props.noteContent}</div>
+        <div className='list-note-tags noselect'><TagContainer noteTags={this.props.noteTags} /></div>
       </div>
     );
   }
