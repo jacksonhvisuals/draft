@@ -14,6 +14,8 @@
   margin-left: 18px;
   display: inline-block;
 }
+.listBar {padding-right: 0px !important; padding-left: 0px !important;}
+.detailBar {padding: 0px !important;}
 /* .search-bar-container {
   display: inline-block;
   padding-left: 16px;

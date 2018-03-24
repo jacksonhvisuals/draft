@@ -5,7 +5,6 @@ import {ListContainer} from '../ListContainer/ListContainer';
 import './ViewContainer.css';
 import {EditorContainer} from '../EditorContainer/EditorContainer';
 import {RandroidToolbar} from '../RandroidToolbar/RandroidToolbar';
-import {DetailToolbar} from '../DetailToolbar/DetailToolbar';
 
 let currentnotes;
 
