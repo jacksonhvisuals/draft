@@ -5,7 +5,7 @@ export class RandroidToolbar extends Component {
   render() {
     return (
       <div className='randroid-toolbar-container'>
-        <div className='app-title'>Aster</div>
+        <div className='app-title noselect'>Notes</div>
       </div>
     );
   }
