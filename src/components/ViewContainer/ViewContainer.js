@@ -81,13 +81,12 @@ export class ViewContainer extends Component {
   render() {
     return (
       <div className='viewContainer'>
+      <RandroidToolbar tyle={{zIndex: '34'}} />
         <Col className='listPane' xs={12} sm={4} md={3}>
-        <RandroidToolbar tyle={{zIndex: '34'}} />
           <ListContainer notesCollection={this.state.notes} noteClickHandler={this.currentActiveNoteSelector} />
           <FAB fabClickHandler={this.createNewNote} />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
-        <DetailToolbar tyle={{zIndex: '34'}} />
           <EditorContainer titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.state.notes[this.state.currentNoteId]["noteTitle"]} noteContentState={this.state.notes[this.state.currentNoteId]["noteContent"]} currentNoteId={this.state.currentNoteId}/>
         </Col>
       </div>
