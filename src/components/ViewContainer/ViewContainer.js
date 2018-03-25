@@ -69,7 +69,7 @@ export class ViewContainer extends Component {
       "noteTitle": "",
       "noteTitlePreview": "New note",
       "noteContent": "",
-      "noteContentPreview": "This is your new note",
+      "noteContentPreview": "This is your new note.",
       "noteTags": [{}],
     };
     currentnotes.push(newNote);

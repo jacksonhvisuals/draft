@@ -7,14 +7,12 @@
   width: 2px;
 }
 
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
 	border-radius: 10px;
 	background-color: rgba(0,0,0,0.009);
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
 	border-radius: 2px;
 	background-color: rgba(0,0,0,0.3);
 }
