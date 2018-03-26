@@ -21,7 +21,7 @@ export class ViewContainer extends Component {
           "noteTitlePreview":"Potential jobs",
           "noteContent":"{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"YNAB, video editing, etc\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteContentPreview":"YNAB, video editing, etc",
-          "noteTags":[{"tag":"fun","id":"1","color":"#987234"},{"tag":"testing","id":"2","color":"#984564"}]
+          "noteTags":[{"tag":"fun","id":"1","color":"#987234", "key":"1"},{"tag":"testing","id":"2","color":"#984564","key":"2"}]
         },
         {
           "key":3,
@@ -31,7 +31,7 @@ export class ViewContainer extends Component {
           "noteTitlePreview":"Shopping list",
           "noteContent":"{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"Milk, eggs, etc.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteContentPreview":"Milk, eggs, etc.",
-          "noteTags":[{"tag":"life","id":"1","color":"#987234"}]
+          "noteTags":[{"tag":"life","id":"1","color":"#987234","key":"1"}]
         }
       ],
       currentNoteId: 2,
@@ -77,14 +77,14 @@ export class ViewContainer extends Component {
 
   createNewNote() {
     let newNote = {
-      "key":2,
-      "id": 2,
+      "key":8,
+      "id": 34,
       "timestamp": "",
       "noteTitle": "",
       "noteTitlePreview": "New note",
       "noteContent": "",
       "noteContentPreview": "This is your new note.",
-      "noteTags": [{}],
+      "noteTags": [{"tag":"tag","id":"1","color":"#987234","key":"1"}],
     };
     currentnotes.push(newNote);
     this.setState({currentNoteId: 2});
