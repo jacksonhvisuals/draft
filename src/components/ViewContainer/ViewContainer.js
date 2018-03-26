@@ -37,11 +37,14 @@ export class ViewContainer extends Component {
       ],
       currentNoteId: 2,
     }
+
+    // Bind local functions
     this.titleEditorUpdate = this.titleEditorUpdate.bind(this);
     this.bodyEditorUpdate = this.bodyEditorUpdate.bind(this);
     this.currentActiveNoteSelector = this.currentActiveNoteSelector.bind(this);
     this.createNewNote = this.createNewNote.bind(this);
     this.selectNote = this.selectNote.bind(this);
+
     currentnotes = this.state.notes;
   }
 
@@ -76,7 +79,7 @@ export class ViewContainer extends Component {
   }
 
   createNewNote() {
-    var timestamp = new Date();
+    let timestamp = new Date();
     let newNote = {
       "key":8,
       "id": 34,
