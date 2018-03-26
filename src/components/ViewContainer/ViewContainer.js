@@ -11,12 +11,13 @@ let currentnotes;
 export class ViewContainer extends Component {
   constructor(props) {
     super(props);
+    let currenttime = new Date();
     this.state = {
       notes: [
         {
           "key":7,
           "id":2,
-          "timestamp":"",
+          "timestamp":currenttime,
           "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Potential jobs\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteTitlePreview":"Potential jobs",
           "noteContent":"{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"YNAB, video editing, etc\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
@@ -26,7 +27,7 @@ export class ViewContainer extends Component {
         {
           "key":3,
           "id":7,
-          "timestamp":"",
+          "timestamp":currenttime,
           "noteTitle":"{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Shopping list\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteTitlePreview":"Shopping list",
           "noteContent":"{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"Milk, eggs, etc.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
@@ -67,7 +68,6 @@ export class ViewContainer extends Component {
             return;
         }
     });
-    console.log(element);
     return element;
   }
 
@@ -76,10 +76,11 @@ export class ViewContainer extends Component {
   }
 
   createNewNote() {
+    var timestamp = new Date();
     let newNote = {
       "key":8,
       "id": 34,
-      "timestamp": "",
+      "timestamp": timestamp,
       "noteTitle": "",
       "noteTitlePreview": "New note",
       "noteContent": "",
@@ -87,8 +88,8 @@ export class ViewContainer extends Component {
       "noteTags": [{"tag":"tag","id":"1","color":"#987234","key":"1"}],
     };
     currentnotes.push(newNote);
+    console.log(timestamp);
     this.setState({currentNoteId: 2});
-    console.log("duh");
   }
 
   render() {
