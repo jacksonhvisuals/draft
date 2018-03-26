@@ -14,8 +14,8 @@ export class ViewContainer extends Component {
     this.state = {
       notes: [
         {
-          "key":0,
-          "id":0,
+          "key":7,
+          "id":2,
           "timestamp":"",
           "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Potential jobs\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteTitlePreview":"Potential jobs",
@@ -24,8 +24,8 @@ export class ViewContainer extends Component {
           "noteTags":[{"tag":"fun","id":"1","color":"#987234"},{"tag":"testing","id":"2","color":"#984564"}]
         },
         {
-          "key":1,
-          "id":1,
+          "key":3,
+          "id":7,
           "timestamp":"",
           "noteTitle":"{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Shopping list\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteTitlePreview":"Shopping list",
@@ -34,27 +34,41 @@ export class ViewContainer extends Component {
           "noteTags":[{"tag":"life","id":"1","color":"#987234"}]
         }
       ],
-      currentNoteId: 0,
+      currentNoteId: 2,
     }
     this.titleEditorUpdate = this.titleEditorUpdate.bind(this);
     this.bodyEditorUpdate = this.bodyEditorUpdate.bind(this);
     this.currentActiveNoteSelector = this.currentActiveNoteSelector.bind(this);
     this.createNewNote = this.createNewNote.bind(this);
+    this.selectNote = this.selectNote.bind(this);
     currentnotes = this.state.notes;
   }
 
   titleEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
-    currentnotes[noteid]["noteTitle"] = jsoncontentdump;
-    currentnotes[noteid]["noteTitlePreview"] = plaintextdump;
+    currentnotes[this.selectNote(noteid)]["noteTitle"] = jsoncontentdump;
+    currentnotes[this.selectNote(noteid)]["noteTitlePreview"] = plaintextdump;
   }
 
   bodyEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
-    currentnotes[noteid]["noteContent"] = jsoncontentdump;
-    currentnotes[noteid]["noteContentPreview"] = plaintextdump;
+    currentnotes[this.selectNote(noteid)]["noteContent"] = jsoncontentdump;
+    currentnotes[this.selectNote(noteid)]["noteContentPreview"] = plaintextdump;
   }
 
   componentWillUnmount() {
     this.setState({currentnotes});
+  }
+
+  selectNote(noteid) {
+    var element = null;
+
+    Object.keys(currentnotes).forEach(function(key) {
+        if(currentnotes[key].id === noteid){
+            element = key;
+            return;
+        }
+    });
+    console.log(element);
+    return element;
   }
 
   currentActiveNoteSelector(noteid) {
@@ -86,7 +100,7 @@ export class ViewContainer extends Component {
           <FAB fabClickHandler={this.createNewNote} />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
-          <EditorContainer titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.state.notes[this.state.currentNoteId]["noteTitle"]} noteContentState={this.state.notes[this.state.currentNoteId]["noteContent"]} currentNoteId={this.state.currentNoteId}/>
+          <EditorContainer titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.state.notes[this.selectNote(this.state.currentNoteId)]["noteTitle"]} noteContentState={this.state.notes[this.selectNote(this.state.currentNoteId)]["noteContent"]} currentNoteId={this.state.currentNoteId}/>
         </Col>
       </div>
     );
