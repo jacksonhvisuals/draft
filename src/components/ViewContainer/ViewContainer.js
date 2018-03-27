@@ -92,7 +92,7 @@ export class ViewContainer extends Component {
     };
     currentnotes.push(newNote);
     console.log(timestamp);
-    this.setState({currentNoteId: 2});
+    this.setState({currentNoteId: 34});
   }
 
   render() {
