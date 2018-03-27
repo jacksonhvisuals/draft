@@ -16,7 +16,7 @@ export class ViewContainer extends Component {
       notes: [
         {
           "key":7,
-          "id":2,
+          "id":2298347,
           "timestamp":currenttime,
           "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Potential jobs\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteTitlePreview":"Potential jobs",
@@ -26,7 +26,7 @@ export class ViewContainer extends Component {
         },
         {
           "key":3,
-          "id":7,
+          "id":71602983,
           "timestamp":currenttime,
           "noteTitle":"{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Shopping list\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteTitlePreview":"Shopping list",
@@ -35,7 +35,7 @@ export class ViewContainer extends Component {
           "noteTags":[{"tag":"life","id":"1","color":"#987234","key":"1"}]
         }
       ],
-      currentNoteId: 2,
+      currentNoteId: 2298347,
     }
 
     // Bind local functions
@@ -80,9 +80,10 @@ export class ViewContainer extends Component {
 
   createNewNote() {
     let timestamp = new Date();
+    let newid = Math.random() * (1876251987 - 51987) + 51987;
     let newNote = {
-      "key":8,
-      "id": 34,
+      "key": newid,
+      "id": newid,
       "timestamp": timestamp,
       "noteTitle": "",
       "noteTitlePreview": "New note",
@@ -92,7 +93,7 @@ export class ViewContainer extends Component {
     };
     currentnotes.push(newNote);
     console.log(timestamp);
-    this.setState({currentNoteId: 34});
+    this.setState({currentNoteId: newid});
   }
 
   render() {
