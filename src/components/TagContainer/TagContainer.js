@@ -19,6 +19,5 @@ export default class TagContainer extends Component {
         </div>
       );
     }
-
   }
 }

@@ -12,28 +12,7 @@ export default class ViewContainer extends Component {
     super(props);
     let currenttime = new Date();
     this.state = {
-      notes: [
-        {
-          "key":7,
-          "id":2298347,
-          "timestamp":currenttime,
-          "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Potential jobs\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteTitlePreview":"Potential jobs",
-          "noteContent":"{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"YNAB, video editing, etc\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteContentPreview":"YNAB, video editing, etc",
-          "noteTags":[{"tag":"fun","id":"1","color":"#987234", "key":"1"},{"tag":"testing","id":"2","color":"#984564","key":"2"}]
-        },
-        {
-          "key":3,
-          "id":71602983,
-          "timestamp":currenttime,
-          "noteTitle":"{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Shopping list\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteTitlePreview":"Shopping list",
-          "noteContent":"{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"Milk, eggs, etc.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteContentPreview":"Milk, eggs, etc.",
-          "noteTags":[{"tag":"life","id":"1","color":"#987234","key":"1"}]
-        }
-      ],
+      notes: [],
       currentNoteId: 2298347,
     }
 
@@ -44,17 +23,25 @@ export default class ViewContainer extends Component {
     this.createNewNote = this.createNewNote.bind(this);
     this.selectNote = this.selectNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
+    this.getNoteTitleState = this.getNoteTitleState.bind(this);
+    this.getNoteContentState = this.getNoteContentState.bind(this);
+    this.getNoteId = this.getNoteId.bind(this);
+
     currentnotes = this.state.notes;
   }
 
   titleEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
-    currentnotes[this.selectNote(noteid)]["noteTitle"] = jsoncontentdump;
-    currentnotes[this.selectNote(noteid)]["noteTitlePreview"] = plaintextdump;
+    if (Array.isArray(this.state.notes) && this.state.notes.length > 0) {
+      currentnotes[this.selectNote(noteid)]["noteTitle"] = jsoncontentdump;
+      currentnotes[this.selectNote(noteid)]["noteTitlePreview"] = plaintextdump;
+    }
   }
 
   bodyEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
-    currentnotes[this.selectNote(noteid)]["noteContent"] = jsoncontentdump;
-    currentnotes[this.selectNote(noteid)]["noteContentPreview"] = plaintextdump;
+    if (Array.isArray(this.state.notes) && this.state.notes.length > 0) {
+      currentnotes[this.selectNote(noteid)]["noteContent"] = jsoncontentdump;
+      currentnotes[this.selectNote(noteid)]["noteContentPreview"] = plaintextdump;
+    }
   }
 
   selectNote(noteid) {
@@ -108,6 +95,30 @@ export default class ViewContainer extends Component {
     this.setState({currentNoteId: newid});
   }
 
+  getNoteTitleState() {
+    if (!Array.isArray(this.state.notes) || !this.state.notes.length) {
+      return undefined;
+    } else {
+      return this.state.notes[this.selectNote(this.state.currentNoteId)]["noteTitle"];
+    }
+  }
+
+  getNoteContentState() {
+    if (!Array.isArray(this.state.notes) || !this.state.notes.length) {
+      return undefined;
+    } else {
+      return this.state.notes[this.selectNote(this.state.currentNoteId)]["noteContent"];
+    }
+  }
+
+  getNoteId() {
+    if (!this.state.currentNoteId) {
+      return undefined;
+    } else {
+      return this.state.currentNoteId;
+    }
+  }
+
   render() {
     return (
       <div className='viewContainer'>
@@ -118,7 +129,7 @@ export default class ViewContainer extends Component {
           <FAB fabClickHandler={this.createNewNote} />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
-          <EditorContainer titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.state.notes[this.selectNote(this.state.currentNoteId)]["noteTitle"]} noteContentState={this.state.notes[this.selectNote(this.state.currentNoteId)]["noteContent"]} currentNoteId={this.state.currentNoteId}/>
+          <EditorContainer titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.getNoteTitleState()} noteContentState={this.getNoteContentState()} currentNoteId={this.getNoteId()}/>
         </Col>
       </div>
     );
