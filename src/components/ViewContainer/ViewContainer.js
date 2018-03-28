@@ -43,7 +43,7 @@ export default class ViewContainer extends Component {
     this.currentActiveNoteSelector = this.currentActiveNoteSelector.bind(this);
     this.createNewNote = this.createNewNote.bind(this);
     this.selectNote = this.selectNote.bind(this);
-
+    this.deleteNote = this.deleteNote.bind(this);
     currentnotes = this.state.notes;
   }
 
@@ -59,7 +59,6 @@ export default class ViewContainer extends Component {
 
   selectNote(noteid) {
     var element = null;
-
     Object.keys(currentnotes).forEach(function(key) {
         if(currentnotes[key].id === noteid){
             element = key;
@@ -76,6 +75,21 @@ export default class ViewContainer extends Component {
   deleteNote(noteid) {
     currentnotes.pop(this.selectNote(noteid));
   }
+
+  componentWillUpdate() {
+    var element = null;
+    Object.keys(currentnotes).forEach(function(key) {
+        if(currentnotes[key].noteContentPreview === "" && (currentnotes[key].noteTitlePreview === "New note")){
+            element = key;
+            // this.deleteNote(key);
+            return;
+        }
+    });
+    if (element !== null) {
+      this.deleteNote(element);
+    }
+  }
+
 
   createNewNote() {
     let timestamp = new Date();
