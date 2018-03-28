@@ -4,11 +4,10 @@ import FAB from '../FAB/FAB';
 import ListContainer from '../ListContainer/ListContainer';
 import './ViewContainer.css';
 import EditorContainer from '../EditorContainer/EditorContainer';
-import RandroidToolbar from '../RandroidToolbar/RandroidToolbar';
 
 let currentnotes;
 
-export class ViewContainer extends Component {
+export default class ViewContainer extends Component {
   constructor(props) {
     super(props);
     let currenttime = new Date();
@@ -99,9 +98,10 @@ export class ViewContainer extends Component {
   render() {
     return (
       <div className='viewContainer'>
-      <RandroidToolbar tyle={{zIndex: '34'}} />
         <Col className='listPane' xs={12} sm={4} md={3}>
-          <ListContainer notesCollection={this.state.notes} noteClickHandler={this.currentActiveNoteSelector} />
+          <div className='listPaneContainer'>
+            <ListContainer notesCollection={this.state.notes} noteClickHandler={this.currentActiveNoteSelector} />
+          </div>
           <FAB fabClickHandler={this.createNewNote} />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
