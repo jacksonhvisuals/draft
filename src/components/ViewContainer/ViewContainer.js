@@ -57,10 +57,6 @@ export default class ViewContainer extends Component {
     currentnotes[this.selectNote(noteid)]["noteContentPreview"] = plaintextdump;
   }
 
-  componentWillUnmount() {
-    this.setState({currentnotes});
-  }
-
   selectNote(noteid) {
     var element = null;
 
@@ -77,6 +73,10 @@ export default class ViewContainer extends Component {
     this.setState({currentNoteId: noteid});
   }
 
+  deleteNote(noteid) {
+    currentnotes.pop(this.selectNote(noteid));
+  }
+
   createNewNote() {
     let timestamp = new Date();
     let newid = Math.random() * (1876251987 - 51987) + 51987;
@@ -91,7 +91,6 @@ export default class ViewContainer extends Component {
       "noteTags": [{"tag":"tag","id":"1","color":"#987234","key":"1"}],
     };
     currentnotes.push(newNote);
-    console.log(timestamp);
     this.setState({currentNoteId: newid});
   }
 
