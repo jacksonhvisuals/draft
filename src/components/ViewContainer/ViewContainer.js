@@ -89,28 +89,9 @@ export default class ViewContainer extends Component {
     return element;
   }
 
-  currentActiveNoteSelector(noteid) {
-    this.setState({currentNoteId: noteid});
-  }
-
   deleteNote(noteid) {
     currentnotes.pop(this.selectNote(noteid));
   }
-
-  componentWillUpdate() {
-    var element = null;
-    Object.keys(currentnotes).forEach(function(key) {
-        if(currentnotes[key].noteContentPreview === "" && (currentnotes[key].noteTitlePreview === "New note")){
-            element = key;
-            // this.deleteNote(key);
-            return;
-        }
-    });
-    if (element !== null) {
-      this.deleteNote(element);
-    }
-  }
-
 
   createNewNote() {
     let timestamp = new Date();
@@ -127,6 +108,10 @@ export default class ViewContainer extends Component {
     };
     currentnotes.push(newNote);
     this.setState({currentNoteId: newid});
+  }
+
+  currentActiveNoteSelector(noteid) {
+    this.setState({currentNoteId: noteid});
   }
 
   getNoteTitleState() {
@@ -150,6 +135,20 @@ export default class ViewContainer extends Component {
       return undefined;
     } else {
       return this.state.currentNoteId;
+    }
+  }
+
+  componentWillUpdate() {
+    var element = null;
+    Object.keys(currentnotes).forEach(function(key) {
+        if(currentnotes[key].noteContentPreview === "" && (currentnotes[key].noteTitlePreview === "New note")){
+            element = key;
+            // this.deleteNote(key);
+            return;
+        }
+    });
+    if (element !== null) {
+      this.deleteNote(element);
     }
   }
 
