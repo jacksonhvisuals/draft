@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {ListItem} from '../ListItem/ListItem';
+import ListItem from '../ListItem/ListItem';
 import './ListContainer.css';
 
-export class ListContainer extends Component {
+export default class ListContainer extends Component {
 
   render(props) {
     return(

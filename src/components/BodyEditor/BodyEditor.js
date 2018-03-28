@@ -8,7 +8,7 @@ import '../../../node_modules/draft-js-emoji-plugin/lib/plugin.css';
 const emojiPlugin = createEmojiPlugin();
 const { EmojiSuggestions } = emojiPlugin;
 
-export class BodyEditor extends Component {
+export default class BodyEditor extends Component {
   constructor(props) {
     super(props);
     this.state = { };

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Tag} from '../Tag/Tag';
+import Tag from '../Tag/Tag';
 import './TagContainer.css';
 
-export class TagContainer extends Component {
+export default class TagContainer extends Component {
   render() {
     if (this.props.noteTags === {}) {
       return null;

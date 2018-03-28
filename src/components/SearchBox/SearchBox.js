@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './SearchBox.css';
 
-export class SearchBox extends Component {
+export default class SearchBox extends Component {
   render() {
     return(
       <div className='search-box-wrapper'>

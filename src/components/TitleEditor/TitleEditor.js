@@ -3,7 +3,7 @@ import {Editor, EditorState, convertToRaw, convertFromRaw} from 'draft-js';
 import './TitleEditor.css';
 import 'draft-js/dist/Draft.css';
 
-export class TitleEditor extends Component {
+export default class TitleEditor extends Component {
 
   constructor(props) {
     super(props);

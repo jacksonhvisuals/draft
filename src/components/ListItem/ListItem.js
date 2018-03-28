@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {TagContainer} from '../TagContainer/TagContainer';
+import TagContainer from '../TagContainer/TagContainer';
 import './ListItem.css';
 
-export class ListItem extends Component {
+export default class ListItem extends Component {
   constructor(props) {
     super(props);
 
