@@ -7,7 +7,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <RandroidToolbar style={{zIndex: '34'}} />
         <ViewContainer style={{zIndex: '1'}}/>
       </div>
     );

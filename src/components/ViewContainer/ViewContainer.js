@@ -4,6 +4,7 @@ import FAB from '../FAB/FAB';
 import ListContainer from '../ListContainer/ListContainer';
 import './ViewContainer.css';
 import EditorContainer from '../EditorContainer/EditorContainer';
+import RandroidToolbar from '../RandroidToolbar/RandroidToolbar';
 
 let currentnotes;
 
@@ -47,6 +48,7 @@ export default class ViewContainer extends Component {
             "key": "1"
           }]
         }],
+      previousNoteId: 71602983,
       currentNoteId: 2298347,
     }
 
@@ -62,6 +64,12 @@ export default class ViewContainer extends Component {
     this.getNoteId = this.getNoteId.bind(this);
 
     currentnotes = this.state.notes;
+  }
+
+  setCurrentNoteId(newid) {
+    let currentId = this.state.currentNoteId;
+    this.setState({previousNoteId: currentId});
+    this.setState({currentNoteId:newid});
   }
 
   titleEditorUpdate(noteid, jsoncontentdump, plaintextdump) {
@@ -140,6 +148,7 @@ export default class ViewContainer extends Component {
 
   componentWillUpdate() {
     var element = null;
+    var previousId = this.state.previousNoteId;
     Object.keys(currentnotes).forEach(function(key) {
         if(currentnotes[key].noteContentPreview === "" && (currentnotes[key].noteTitlePreview === "New note")){
             element = key;
@@ -148,6 +157,7 @@ export default class ViewContainer extends Component {
         }
     });
     if (element !== null) {
+      this.setState({currentNoteId: previousId});
       this.deleteNote(element);
     }
   }
@@ -155,6 +165,7 @@ export default class ViewContainer extends Component {
   render() {
     return (
       <div className='viewContainer'>
+        <RandroidToolbar />
         <Col className='listPane' xs={12} sm={4} md={3}>
           <div className='listPaneContainer'>
             <ListContainer notesCollection={this.state.notes} noteClickHandler={this.currentActiveNoteSelector} />
