@@ -17,32 +17,12 @@ export default class ViewContainer extends Component {
           "key": 7,
           "id": 2298347,
           "timestamp": currenttime,
-          "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Potential jobs\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteTitlePreview": "Potential jobs",
-          "noteContent": "{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"YNAB, video editing, etc\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteContentPreview": "YNAB, video editing, etc",
+          "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"This is Aster\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
+          "noteTitlePreview": "This is Aster",
+          "noteContent": "{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"A minimalistic notes app for the web.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
+          "noteContentPreview": "A minimalistic notes app for the web.",
           "noteTags": [{
-            "tag": "fun",
-            "id": "1",
-            "color": "#987234",
-            "key": "1"
-          }, {
-            "tag": "testing",
-            "id": "2",
-            "color": "#984564",
-            "key": "2"
-          }]
-        },
-        {
-          "key": 3,
-          "id": 71602983,
-          "timestamp": currenttime,
-          "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"Shopping list\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteTitlePreview": "Shopping list",
-          "noteContent": "{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"Milk, eggs, etc.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteContentPreview": "Milk, eggs, etc.",
-          "noteTags": [{
-            "tag": "life",
+            "tag": "TESTING",
             "id": "1",
             "color": "#987234",
             "key": "1"
