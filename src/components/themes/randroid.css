@@ -1,3 +1,8 @@
+document {
+  --main-font-family: 'Roboto', sans-serif;
+}
+
+
 /* Toolbar */
 
 .randroid-toolbar-container {
@@ -16,7 +21,7 @@
   color: #8c9ffe;
   margin-left: 18px;
   display: inline-block;
-  font-family: 'Raleway';
+  font-family: var(--main-font-family);
 }
 
 .listBar {
@@ -157,11 +162,11 @@
 .list-note-title {
   font-weight: 550;
   font-size: 24px;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--main-font-family);
 }
 
 .list-note-content {
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--main-font-family);
   margin-top: 8px;
 }
 
@@ -208,7 +213,7 @@
 
 .editor-container-element {
   margin-top: 18px;
-  font-family: 'Raleway';
+  font-family: var(--main-font-family);
 }
 /* Title Editor */
 
@@ -226,5 +231,5 @@
   margin-right: 18px;
   font-size: 16px;
   margin-top: 18px;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--main-font-family);
 }

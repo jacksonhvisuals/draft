@@ -1,0 +1,242 @@
+:root {
+  --main-font-family: 'Raleway', serif;
+  --fab-color: 128,128,128;
+}
+
+
+/* Toolbar */
+
+.randroid-toolbar-container {
+  height: 56px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  position: relative;
+}
+
+.app-title {
+  font-size: 18px;
+  line-height: 56px;
+  font-weight: 700;
+  color: grey;
+  display: inline-block;
+  font-family: var(--main-font-family);
+  text-transform: uppercase;
+}
+
+.listBar {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  text-align: center;
+}
+
+.detailBar {
+  padding: 0px !important;
+}
+
+.toolbar-divider {
+  width: 2px;
+  border-radius: 10px;
+  height: 32px;
+  margin-top: 12px;
+  background-color: rgba(0,0,0,0.1);
+  float: right;
+  display: inline-block;
+}
+
+/* .search-bar-container {
+  display: inline-block;
+  padding-left: 16px;
+  padding-top: 32px;
+}
+.search-bar {
+  font-size: 14px;
+  background-color: rgba(0,0,0,0.2);
+  padding: 8px;
+  border-radius: 3px;
+  width: 196px;
+  height: 32px;
+} */
+
+/* ViewContainer */
+
+.listPane {
+  background-color: rgba(0,0,0,0.01);
+  height: calc(100vh - 56px);
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+.listPaneContainer {
+  height: calc(100vh - 56px);
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  overflow-y: scroll;
+}
+
+.detailPane {
+  background-color: white;
+  height: calc(100vh - 56px);
+  padding: 0px !important;
+}
+
+.viewContainer {
+  z-index: 0;
+  position: relative;
+  overflow-y: hidden;
+}
+
+/* Search Box */
+
+.search-box-wrapper {
+  width: auto;
+  display: inline-block;
+  border-radius: 3px;
+  height: 44px;
+
+}
+
+.search-box-container {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 3px;
+
+}
+
+.search-text {
+  display: inline-block;
+  font-weight: 700;
+  color: grey;
+  font-size: 14px;
+}
+
+.search-icon {
+  display: inline-block;
+  font-weight: 700;
+  color: grey;
+  padding-left: 4px;
+  padding-top: 8px;
+}
+
+/* Tag Container */
+.tag-container-item {
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+/* Tag */
+
+.tag-item {
+  background-color: lightgrey;
+  border-radius: 100px;
+  display: inline-block;
+  padding: 4px 16px 4px 16px;
+  margin-left: 4px;
+  text-transform: uppercase;
+  font-weight: 550;
+  color: grey;
+  float: right;
+}
+
+.tag-item::before {
+  content: '#';
+}
+
+/* List Container */
+
+.list-container {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.009);
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 2px;
+	background-color: rgba(0,0,0,0.3);
+}
+
+/* List Item */
+
+.list-note-title {
+  font-weight: 550;
+  font-size: 24px;
+  font-family: var(--main-font-family);
+}
+
+.list-note-content {
+  font-family: var(--main-font-family);
+  margin-top: 8px;
+}
+
+.list-note-item {
+  width: 100%;
+  height: auto;
+  padding: 24px;
+  padding-left: 19px;
+  padding-right: 10px;
+  padding-bottom: 16px;
+   border-bottom: 1px solid rgba(0,0,0,0.2);
+ }
+
+.list-note-item:hover, .list-note-item:focus {
+  background-color: rgba(0,0,0,0.02);
+}
+
+/* FAB */
+
+.mdc-fab {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 16px;
+  background-color: #808080;
+  color: #ffffff;
+}
+
+.mdc-fab {
+    -webkit-box-shadow: 0 6px 7px 0px rgba(var(--fab-color),.2), 0 9px 12px 0 rgba(var(--fab-color),.14), 0 4px 20px 0 rgba(var(--fab-color),.12);
+    box-shadow: 0 3px 5px -1px rgba(var(--fab-color),.2), 0 6px 10px 0 rgba(var(--fab-color),.14), 0 1px 18px 0 rgba(var(--fab-color),.12);
+    -webkit-transition: opacity 15ms linear 30ms,-webkit-box-shadow .28s cubic-bezier(.4,0,.2,1),-webkit-transform .27s cubic-bezier(0,0,.2,1) 0ms;
+    transition: opacity 15ms linear 30ms,-webkit-box-shadow .28s cubic-bezier(.4,0,.2,1),-webkit-transform .27s cubic-bezier(0,0,.2,1) 0ms;
+    transition: box-shadow .28s cubic-bezier(.4,0,.2,1),opacity 15ms linear 30ms,transform .27s cubic-bezier(0,0,.2,1) 0ms;
+    transition: box-shadow .28s cubic-bezier(.4,0,.2,1),opacity 15ms linear 30ms,transform .27s cubic-bezier(0,0,.2,1) 0ms,-webkit-box-shadow .28s cubic-bezier(.4,0,.2,1),-webkit-transform .27s cubic-bezier(0,0,.2,1) 0ms;
+}
+
+.mdc-fab:focus, .mdc-fab:hover {
+    -webkit-box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+
+/* Editor Container */
+
+.editor-container-element {
+  margin-top: 18px;
+  font-family: var(--main-font-family);
+}
+/* Title Editor */
+
+.title-editor-wrapper {
+  margin-left: 18px;
+  margin-right: 18px;
+  font-size: 28px;
+  font-weight: 600
+}
+
+/* Body Editor */
+
+.body-editor-wrapper {
+  margin-left: 18px;
+  margin-right: 18px;
+  font-size: 16px;
+  margin-top: 18px;
+  font-family: var(--main-font-family);
+}
