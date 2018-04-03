@@ -7,6 +7,7 @@ import EditorContainer from '../EditorContainer/EditorContainer';
 import RandroidToolbar from '../RandroidToolbar/RandroidToolbar';
 
 let currentnotes;
+let currentNoteId;
 
 export default class ViewContainer extends Component {
   constructor(props) {
@@ -19,8 +20,8 @@ export default class ViewContainer extends Component {
           "timestamp": currenttime,
           "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"This is Aster\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteTitlePreview": "This is Aster",
-          "noteContent": "{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"A minimalistic notes app for the web.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteContentPreview": "A minimalistic notes app for the web.",
+          "noteContent": "{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"A minimal notes app for the web.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
+          "noteContentPreview": "A minimal notes app for the web.",
           "noteTags": [{
             "tag": "TESTING",
             "id": "1",
@@ -28,7 +29,7 @@ export default class ViewContainer extends Component {
             "key": "1"
           }]
         }],
-      previousNoteId: 71602983,
+      previousNoteId: 2298347,
       currentNoteId: 2298347,
     }
 
@@ -44,6 +45,7 @@ export default class ViewContainer extends Component {
     this.getNoteId = this.getNoteId.bind(this);
 
     currentnotes = this.state.notes;
+    currentNoteId = this.state.currentNoteId;
   }
 
   setCurrentNoteId(newid) {
@@ -83,7 +85,7 @@ export default class ViewContainer extends Component {
 
   createNewNote() {
     let timestamp = new Date();
-    let newid = Math.random() * (1876251987 - 51987) + 51987;
+    let newid = Math.floor(Math.random() * (1876251987 - 51987) + 51987);
     let newNote = {
       "key": newid,
       "id": newid,
@@ -94,12 +96,34 @@ export default class ViewContainer extends Component {
       "noteContentPreview": "This is your new note.",
       "noteTags": [{"tag":"tag","id":"1","color":"#987234","key":"1"}],
     };
-    currentnotes.push(newNote);
-    this.setState({currentNoteId: newid});
+    var element = null;
+    var previousId = this.state.previousNoteId;
+    var newnoteopen;
+    Object.keys(currentnotes).forEach(function(key) {
+        if(currentnotes[key].noteContentPreview === "" && currentnotes[key].noteTitlePreview === "New note"){
+            element = key;
+            newnoteopen = true;
+            console.log("noteopen");
+            return;
+        } else {
+          console.log("notenotopen");
+          newnoteopen = false;
+        }
+    });
+    if (!newnoteopen) {
+      currentnotes.push(newNote);
+      this.setState({currentNoteId: newid});
+      console.log("newNoteId: " + newid);
+    }
   }
 
   currentActiveNoteSelector(noteid) {
     this.setState({currentNoteId: noteid});
+    if(this.checkForEmptyNote() !== undefined && this.checkForEmptyNote() !== false && currentnotes[this.checkForEmptyNote()].id !== noteid) {
+        this.setState({currentNoteId: this.state.previousNoteId});
+        console.log("deleting note in position: " + this.checkForEmptyNote());
+        this.deleteNote(this.checkForEmptyNote());
+    }
   }
 
   getNoteTitleState() {
@@ -127,18 +151,22 @@ export default class ViewContainer extends Component {
   }
 
   componentWillUpdate() {
-    var element = null;
-    var previousId = this.state.previousNoteId;
+    // this.checkForEmptyNote();
+  }
+
+  checkForEmptyNote() {
+    let element = null;
+    let previousId = this.state.previousNoteId;
     Object.keys(currentnotes).forEach(function(key) {
-        if(currentnotes[key].noteContentPreview === "" && (currentnotes[key].noteTitlePreview === "New note")){
+        if(currentnotes[key].noteContentPreview === "" && currentnotes[key].noteTitlePreview === "New note" && currentnotes[key].id !== currentNoteId){
             element = key;
-            // this.deleteNote(key);
             return;
         }
     });
     if (element !== null) {
-      this.setState({currentNoteId: previousId});
-      this.deleteNote(element);
+      return element;
+    } else {
+      return false;
     }
   }
 

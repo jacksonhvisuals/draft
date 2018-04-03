@@ -1,9 +1,10 @@
 .list-note-title {
   font-weight: 550;
   font-size: 24px;
+  font-family: 'Raleway', sans-serif;
 }
 .list-note-content {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Raleway', sans-serif;
   margin-top: 8px;
 }
 
