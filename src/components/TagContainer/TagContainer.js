@@ -12,7 +12,7 @@ export default class TagContainer extends Component {
           {
               this.props.noteTags.map((noteTag) => {
               return(
-                <Tag tagName={noteTag.tag} id={noteTag.id} color={noteTag.color} key={noteTag.key}/>
+                <Tag tagName={noteTag.tag} id={noteTag.id} key={noteTag.key}/>
               )
             })
           }

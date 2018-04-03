@@ -25,7 +25,6 @@ export default class ViewContainer extends Component {
           "noteTags": [{
             "tag": "TESTING",
             "id": "1",
-            "color": "#987234",
             "key": "1"
           }]
         }],
@@ -94,7 +93,7 @@ export default class ViewContainer extends Component {
       "noteTitlePreview": "New note",
       "noteContent": "",
       "noteContentPreview": "This is your new note.",
-      "noteTags": [{"tag":"tag","id":"1","color":"#987234","key":"1"}],
+      "noteTags": [{"tag":"tag","id":"1","key":"1"}],
     };
     var element = null;
     var previousId = this.state.previousNoteId;
