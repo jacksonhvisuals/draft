@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Col } from 'react-bootstrap';
 import FAB from '../FAB/FAB';
 import ListContainer from '../ListContainer/ListContainer';
-import './ViewContainer.css';
 import EditorContainer from '../EditorContainer/EditorContainer';
 import RandroidToolbar from '../RandroidToolbar/RandroidToolbar';
+import '../themes/randroid.css';
 
 let currentnotes;
 let currentNoteId;

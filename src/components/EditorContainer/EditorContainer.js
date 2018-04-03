@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../EditorContainer/EditorContainer.css';
 import BodyEditor from '../BodyEditor/BodyEditor';
 import TitleEditor from '../TitleEditor/TitleEditor';
 

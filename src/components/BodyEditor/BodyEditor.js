@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import createEmojiPlugin from 'draft-js-emoji-plugin';
-import './BodyEditor.css';
 import '../../../node_modules/draft-js-emoji-plugin/lib/plugin.css';
 
 const emojiPlugin = createEmojiPlugin();

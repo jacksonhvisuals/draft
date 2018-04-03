@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Editor, EditorState, convertToRaw, convertFromRaw} from 'draft-js';
-import './TitleEditor.css';
 import 'draft-js/dist/Draft.css';
 
 export default class TitleEditor extends Component {

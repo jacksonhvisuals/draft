@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Col } from 'react-bootstrap';
-import './RandroidToolbar.css';
 
 export default class RandroidToolbar extends Component {
   render() {

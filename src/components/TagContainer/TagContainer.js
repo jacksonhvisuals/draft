@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Tag from '../Tag/Tag';
-import './TagContainer.css';
 
 export default class TagContainer extends Component {
   render() {
