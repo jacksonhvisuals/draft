@@ -42,7 +42,7 @@ export default class ViewContainer extends Component {
     this.getNoteTitleState = this.getNoteTitleState.bind(this);
     this.getNoteContentState = this.getNoteContentState.bind(this);
     this.getNoteId = this.getNoteId.bind(this);
-
+    this.deleteNoteHandler = this.deleteNoteHandler.bind(this);
     currentnotes = this.state.notes;
     currentNoteId = this.state.currentNoteId;
   }
@@ -80,6 +80,15 @@ export default class ViewContainer extends Component {
 
   deleteNote(noteid) {
     currentnotes.pop(this.selectNote(noteid));
+    var previousNoteId = this.state.previousNoteId;
+    this.setState({currentNoteId: previousNoteId});
+
+    this.setState({notes: currentnotes});
+  }
+
+  deleteNoteHandler() {
+    this.deleteNote(this.state.currentNoteId);
+
   }
 
   createNewNote() {
@@ -172,7 +181,7 @@ export default class ViewContainer extends Component {
   render() {
     return (
       <div className='viewContainer'>
-        <RandroidToolbar />
+        <RandroidToolbar deleteHandler={this.deleteNoteHandler}/>
         <Col className='listPane' xs={12} sm={4} md={3}>
           <div className='listPaneContainer'>
             <ListContainer notesCollection={this.state.notes} noteClickHandler={this.currentActiveNoteSelector} />
