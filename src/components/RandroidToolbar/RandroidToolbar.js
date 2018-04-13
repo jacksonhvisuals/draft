@@ -10,7 +10,7 @@ export default class RandroidToolbar extends Component {
           <div className='toolbar-divider hidden-xs'></div>
         </Col>
         <Col className='detailBar hidden-xs' xs={0} sm={8} md={9}>
-          <button onClick={this.props.deleteHandler}><i className='material-icons delete-button'>delete</i></button>
+          <button className='delete-button-button' onClick={this.props.deleteHandler}><i className='material-icons delete-button'>delete</i></button>
         </Col>
       </div>
     );

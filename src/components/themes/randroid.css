@@ -117,13 +117,35 @@ document {
 }
 
 /* Delete Button */
+.delete-button-button {
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: default;
+  outline:0;
+  padding: 0px;
+  margin: 0px;
+  margin-right: 8px;
+
+  float: right;
+}
 .delete-button {
   color: grey;
   font-size: 24px;
   line-height: 56px;
-  float: right;
-  padding-right: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
+.delete-button-button:focus .delete-button {
+  animation: trashclick;
+  animation-duration: 0.2s;
+}
+@keyframes trashclick {
+    0% {color: grey;}
+    50% {color: darkgrey;}
+    100% {color: grey;}
+}
+
 /* Tag Container */
 .tag-container-item {
   margin-top: 10px;
