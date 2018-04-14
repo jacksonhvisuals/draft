@@ -136,10 +136,12 @@ document {
   padding-left: 16px;
   padding-right: 16px;
 }
+
 .delete-button-button:focus .delete-button {
   animation: trashclick;
   animation-duration: 0.2s;
 }
+
 @keyframes trashclick {
     0% {color: grey;}
     50% {color: darkgrey;}

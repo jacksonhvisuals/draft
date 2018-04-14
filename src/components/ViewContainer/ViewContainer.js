@@ -104,12 +104,10 @@ export default class ViewContainer extends Component {
       "noteContentPreview": "This is your new note.",
       "noteTags": [{"tag":"tag","id":"1","key":"1"}],
     };
-    var element = null;
     var previousId = this.state.previousNoteId;
     var newnoteopen;
     Object.keys(currentnotes).forEach(function(key) {
         if(currentnotes[key].noteContentPreview === "" && currentnotes[key].noteTitlePreview === "New note"){
-            element = key;
             newnoteopen = true;
             console.log("noteopen");
             return;
