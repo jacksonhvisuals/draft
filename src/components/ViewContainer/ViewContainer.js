@@ -5,6 +5,7 @@ import ListContainer from '../ListContainer/ListContainer';
 import EditorContainer from '../EditorContainer/EditorContainer';
 import RandroidToolbar from '../RandroidToolbar/RandroidToolbar';
 import '../themes/randroid.css';
+import './ViewContainer.css';
 
 let currentnotes;
 let currentNoteId;
@@ -84,6 +85,9 @@ export default class ViewContainer extends Component {
     this.setState({currentNoteId: previousNoteId});
 
     this.setState({notes: currentnotes});
+    if (this.state.notes.length === 0) {
+      console.log(this.state.notes);
+    }
   }
 
   deleteNoteHandler() {
@@ -154,10 +158,6 @@ export default class ViewContainer extends Component {
     } else {
       return this.state.currentNoteId;
     }
-  }
-
-  componentWillUpdate() {
-    // this.checkForEmptyNote();
   }
 
   checkForEmptyNote() {

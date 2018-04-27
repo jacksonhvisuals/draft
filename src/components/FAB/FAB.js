@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FAB.css';
 
 export default class FAB extends Component {
   render() {

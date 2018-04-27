@@ -3,6 +3,7 @@ import {EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import createEmojiPlugin from 'draft-js-emoji-plugin';
 import '../../../node_modules/draft-js-emoji-plugin/lib/plugin.css';
+import './BodyEditor.css';
 
 const emojiPlugin = createEmojiPlugin();
 const { EmojiSuggestions } = emojiPlugin;
