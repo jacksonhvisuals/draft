@@ -28,6 +28,10 @@ export default class TitleEditor extends Component {
     } else if (content === "") {
       this.setState({editorState: EditorState.createEmpty()});
     }
+
+    if(nextProps.emptyNoteTrigger === true){
+      this.state.editorState = EditorState.createEmpty();
+    }
   }
 
   onChange(editorState) {

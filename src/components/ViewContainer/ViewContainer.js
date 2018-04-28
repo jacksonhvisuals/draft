@@ -187,7 +187,7 @@ export default class ViewContainer extends Component {
           <FAB fabClickHandler={this.createNewNote} />
         </Col>
         <Col className='detailPane hidden-xs' xs={0} sm={8} md={9}>
-          <EditorContainer titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.getNoteTitleState()} noteContentState={this.getNoteContentState()} currentNoteId={this.getNoteId()}/>
+          <EditorContainer notesArray={this.state.notes} titleUpdate={this.titleEditorUpdate} bodyUpdate={this.bodyEditorUpdate} noteTitleState={this.getNoteTitleState()} noteContentState={this.getNoteContentState()} currentNoteId={this.getNoteId()}/>
         </Col>
       </div>
     );
