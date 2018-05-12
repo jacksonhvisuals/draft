@@ -11,7 +11,7 @@ const { EmojiSuggestions } = emojiPlugin;
 export default class BodyEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
 
     const content = this.props.currentEditorState;
 
