@@ -108,8 +108,8 @@ export default class ViewContainer extends Component {
       "noteContentPreview": "This is your new note.",
       "noteTags": [{"tag":"tag","id":"1","key":"1"}],
     };
-    var previousId = this.state.previousNoteId;
-    var newnoteopen;
+    // var previousId = this.state.previousNoteId;
+    let newnoteopen;
     Object.keys(currentnotes).forEach(function(key) {
         if(currentnotes[key].noteContentPreview === "" && currentnotes[key].noteTitlePreview === "New note"){
             newnoteopen = true;
@@ -162,7 +162,7 @@ export default class ViewContainer extends Component {
 
   checkForEmptyNote() {
     let element = null;
-    let previousId = this.state.previousNoteId;
+    // let previousId = this.state.previousNoteId;
     Object.keys(currentnotes).forEach(function(key) {
         if(currentnotes[key].noteContentPreview === "" && currentnotes[key].noteTitlePreview === "New note" && currentnotes[key].id !== currentNoteId){
             element = key;

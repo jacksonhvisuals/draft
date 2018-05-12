@@ -10,7 +10,6 @@ export default class EditorContainer extends Component {
 
   }
   componentWillReceiveProps(nextProps) {
-    const content = nextProps.notesArray;
     if (nextProps.notesArray.length === 0) {
       this.setState({shouldChildrenRerender: true});
     }

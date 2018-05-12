@@ -34,7 +34,7 @@ export default class BodyEditor extends Component {
       this.setState({editorState: EditorState.createEmpty()});
     }
     if(nextProps.emptyNoteTrigger === true){
-      this.state.editorState = EditorState.createEmpty();
+      this.setState({editorState: EditorState.createEmpty()});
     }
   }
 

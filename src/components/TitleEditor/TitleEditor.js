@@ -30,7 +30,7 @@ export default class TitleEditor extends Component {
     }
 
     if(nextProps.emptyNoteTrigger === true){
-      this.state.editorState = EditorState.createEmpty();
+      this.setState({editorState: EditorState.createEmpty()});
     }
   }
 
