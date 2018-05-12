@@ -19,8 +19,8 @@ export default class ViewContainer extends Component {
           "key": 7,
           "id": 2298347,
           "timestamp": currenttime,
-          "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"This is Aster\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
-          "noteTitlePreview": "This is Aster",
+          "noteTitle": "{\"blocks\":[{\"key\":\"41lj2\",\"text\":\"This is Draft\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
+          "noteTitlePreview": "This is Draft",
           "noteContent": "{\"blocks\":[{\"key\":\"2hq50\",\"text\":\"A minimal notes app for the web.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
           "noteContentPreview": "A minimal notes app for the web.",
           "noteTags": [{
